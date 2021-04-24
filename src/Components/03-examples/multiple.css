@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.btn:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.container {
+  padding: 10px;
+  background: #eee;
+  border-radius: 0.25rem;
+  width: 400px;
+}
+
+.blockquote {
+  text-align: right;
+}
