@@ -19,6 +19,7 @@ Hooks creados:
 - **useForm** _Simulando useState y useEffect_
 - **useFetch** _Para consumir API desde un Custom Hook_
 - **useRef** _Para mantener una referencia a un componente activo/inactivo_
+- **useLayoutEffect** _Imprimir en pantalla las dimensiones de un box despues de renderizado, se utiliza getBoundingClientRect()_
 
 **Profesor** _Fernando Herrera @Fernando_Her85_
 
