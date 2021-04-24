@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+p {
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+}
+
+.list-group-item {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+p {
+  display: inline-block;
+  width: 70%;
+}
+
+p ~ .btn {
+  width: 30%;
+}
+
+.complete {
+  text-decoration: line-through;
+}
+
+form > .btn-block {
+  width: 100%;
+}

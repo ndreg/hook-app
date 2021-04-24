@@ -9,14 +9,18 @@
 // import { Memorize } from "./Components/06-memos/Memorize"
 // import { MemoHook } from "./Components/06-memos/MemoHook"
 // import { CallbackHooks } from "./Components/06-memos/CallbackHooks"
+// import { Padre } from "./Components/07-tarea-memo/Padre"
 
-import { Padre } from "./Components/07-tarea-memo/Padre"
+import { TodoApp } from "./Components/08-useReducer/TodoApp"
+
 
 
 export const HookApp = () => {
   return (
     <>
-    <Padre />
+    <TodoApp />
     </>
   )
 }
+
+
