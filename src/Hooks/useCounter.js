@@ -18,8 +18,8 @@ export const useCounter = (initialState=1) => {
 
   return [
     counter,
-    reset,
     increment,
+    reset,
     decrement
   ]
 }
