@@ -1,0 +1,7 @@
+body {
+  padding: 70px;
+}
+
+.btn:not(:last-of-type) {
+  margin-right: 30px;
+}
