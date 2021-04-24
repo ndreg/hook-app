@@ -7,14 +7,15 @@
 // import { RealExampleRef } from "./Components/04-useRef/RealExampleRef"
 // import { LayoutEffect } from "./Components/05-useLayoutEffect/LayoutEffect"
 // import { Memorize } from "./Components/06-memos/Memorize"
+// import { MemoHook } from "./Components/06-memos/MemoHook"
 
-import { MemoHook } from "./Components/06-memos/MemoHook"
+import { CallbackHooks } from "./Components/06-memos/CallbackHooks"
 
 
 export const HookApp = () => {
   return (
     <>
-    <MemoHook />
+    <CallbackHooks />
     </>
   )
 }

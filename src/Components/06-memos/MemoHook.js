@@ -5,7 +5,7 @@ import '../03-examples/multiple.css'
 
 export const MemoHook = () => {
 
-  const [counter, increment] = useCounter(5);
+  const [counter, increment] = useCounter();
   const [show, setShow] = useState(true);
   const memoProcesoPesado = useMemo(() => procesoPesado(counter), [counter])
 
