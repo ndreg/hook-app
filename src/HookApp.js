@@ -5,13 +5,16 @@
 // import { MultipleCustomHooks } from "./Components/03-examples/MultipleCustomHooks"
 // import { FocusScreen } from "./Components/04-useRef/FocusScreen"
 // import { RealExampleRef } from "./Components/04-useRef/RealExampleRef"
+// import { LayoutEffect } from "./Components/05-useLayoutEffect/LayoutEffect"
+// import { Memorize } from "./Components/06-memos/Memorize"
 
-import { LayoutEffect } from "./Components/05-useLayoutEffect/LayoutEffect"
+import { MemoHook } from "./Components/06-memos/MemoHook"
+
 
 export const HookApp = () => {
   return (
     <>
-    <LayoutEffect />
+    <MemoHook />
     </>
   )
 }

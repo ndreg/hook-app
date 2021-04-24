@@ -20,6 +20,7 @@ Hooks creados:
 - **useFetch** _Para consumir API desde un Custom Hook_
 - **useRef** _Para mantener una referencia a un componente activo/inactivo_
 - **useLayoutEffect** _Imprimir en pantalla las dimensiones de un box despues de renderizado, se utiliza getBoundingClientRect()_
+- **memo y useMemo** _Se utiliza React.memo y el hook useMemo para memorizar el valor procesado de una funcion y evitar que se renderice sin que la dependencia cambie_
 
 **Profesor** _Fernando Herrera @Fernando_Her85_
 
