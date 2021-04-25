@@ -1,26 +1,31 @@
-import {useReducer} from 'react';
+import {useReducer, useEffect} from 'react';
 import {todoReducer} from './todoReducer';
 
 import './todoapp.css';
+import { useForm } from '../../Hooks/useForm';
 
 
-const initialState = [
-  {
-    id: new Date().getTime(),
-    description: 'Learn React',
-    done: false,
-  }
-]
+const init = () => {
+ return JSON.parse(localStorage.getItem('todos') || [])
+}
 
 export const TodoApp = () => {
 
-  const [todos, dispatch] = useReducer(todoReducer, initialState)
+
+  const [todos, dispatch] = useReducer(todoReducer, [], init)
+
+  useEffect(()=> {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if(description.trim().length > 0) {
     const newTodo = {
       id: new Date().getTime(),
-      description: 'New task',
+      description: description,
       done: false
     }
 
@@ -30,7 +35,15 @@ export const TodoApp = () => {
     }
     
     dispatch( action );
+    reset()
+  }else {
+    alert("No se permiten valores vacios.")
   }
+  }
+
+  const [{description}, handleInputChange, reset] = useForm({
+    description: ''
+  })
 
   return (
     <div>
@@ -67,6 +80,8 @@ export const TodoApp = () => {
             className="form-control"
             placeholder="To do ..."
             autoComplete="off"
+            value={description}
+            onChange={handleInputChange}
             ></input>
             <button 
             className="btn btn-block btn-outline-danger mt-1"
