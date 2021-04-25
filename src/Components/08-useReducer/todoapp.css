@@ -21,17 +21,30 @@ h1 {
 }
 p {
   display: inline-block;
-  width: 70%;
+  width: 60%;
 }
 
 p ~ .btn {
-  width: 30%;
+  width: 40%;
 }
 
 .complete {
+  font-size: 1.05rem;
+  color: #dc3545;
   text-decoration: line-through;
 }
+.task-app {
+  padding: 1rem;
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+}
 
-form > .btn-block {
+.list-group {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.form-app > .btn-block {
   width: 100%;
 }

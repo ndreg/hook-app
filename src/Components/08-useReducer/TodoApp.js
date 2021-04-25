@@ -1,96 +1,93 @@
-import {useReducer, useEffect} from 'react';
+import {useReducer, useEffect, useCallback} from 'react';
 import {todoReducer} from './todoReducer';
+import { useForm } from '../../Hooks/useForm';
+import { TodoList } from './TodoList';
 
 import './todoapp.css';
-import { useForm } from '../../Hooks/useForm';
-
+import { TodoForm } from './TodoForm';
 
 const init = () => {
- return JSON.parse(localStorage.getItem('todos') || [])
+  return JSON.parse(localStorage.getItem('todos') || []);
 }
 
 export const TodoApp = () => {
 
-
-  const [todos, dispatch] = useReducer(todoReducer, [], init)
-
-  useEffect(()=> {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }, [todos])
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if(description.trim().length > 0) {
-    const newTodo = {
-      id: new Date().getTime(),
-      description: description,
-      done: false
-    }
-
-    const action = {
-      type: 'add',
-      payload: newTodo,
-    }
-    
-    dispatch( action );
-    reset()
-  }else {
-    alert("No se permiten valores vacios.")
-  }
-  }
+  const [todos, dispatch] = useReducer(todoReducer, [], init);
 
   const [{description}, handleInputChange, reset] = useForm({
-    description: ''
-  })
+    id: new Date().getTime(),
+    description: '',
+  });
+
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos])
+
+  const handleDelete = useCallback(
+  (todoId) => {
+    dispatch({
+      type: 'delete',
+      payload: todoId,
+    });
+  },
+  [dispatch],
+  );
+
+  const handleToggle = useCallback(
+  (todoId) => {
+    dispatch({
+      type: 'toggle',
+      payload: todoId
+    })
+  },
+  [dispatch],
+  );
+
+
+const handleSubmit = useCallback(
+  (e) => {
+  e.preventDefault();
+  if(description.trim().length > 0) {
+    const newTodo = {
+      id: new Date().getTime(),
+      description, 
+      done: false,
+    }
+
+    dispatch({
+      type: 'add',
+      payload: newTodo,
+    });
+
+    reset();
+  }
+  },
+  [description, reset],
+  );
 
   return (
-    <div>
-      <h1>Task to do ({todos.length})</h1>
+    <div className="task-app">
+      <h1>Pending tasks: {todos.length}</h1>
       <hr/>
 
       <div className="row">
         <div className="col-7">
-            <ul className="list-group list-group-flush">
-            {
-              todos.map((todo, id) => (
-                <li 
-                key={todo.id}
-                className="list-group-item"
-                >
-                  <p className="">
-                  {id+1}. {todo.description}
-                  </p>
-
-                  <button className="btn btn-danger">Delete</button>
-                </li>
-              ))
-            }
-          </ul> 
+          <TodoList 
+          todos={todos}
+          handleToggle={handleToggle}
+          handleDelete={handleDelete}
+          />
         </div>
 
         <div className="col-5">
-          <h4 className="text-center">Add task</h4>
-          <hr/>
-          <form onSubmit={handleSubmit}>
-            <input
-            type="text"
-            name="description"
-            className="form-control"
-            placeholder="To do ..."
-            autoComplete="off"
-            value={description}
-            onChange={handleInputChange}
-            ></input>
-            <button 
-            className="btn btn-block btn-outline-danger mt-1"
-            type="submit">Add</button>
-          </form>
+          <TodoForm
+          description={description}
+          handleSubmit={handleSubmit}
+          handleInputChange={handleInputChange}
+          />
         </div>
-
       </div>
-      
     </div>
   )
 }
