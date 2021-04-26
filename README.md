@@ -1,8 +1,8 @@
-# Custom Hook App
+# Hooks | Nativos y Custom
 
 ## React de cero a experto | Udemy
 
-### Herramientas utilizadas
+### Herramientas usadas
 
 - React + Custom Hooks
 - Bootstrap
@@ -10,17 +10,19 @@
 - Git
 - The Breaking Bad API
 
-#### Descripcion
+### Descripcion
 
-Se crean custom hooks como parte de la profundizacion del entendimiento de los mismos.
-Hooks creados:
+Consiste en una formacion y profundizacion completa en el uso de los principales Hooks de React y la creacion de \*_custom hooks_ para reutilizar logica.
 
-- **useCounter** _Para simular useState_
-- **useForm** _Simulando useState y useEffect_
-- **useFetch** _Para consumir API desde un Custom Hook_
-- **useRef** _Para mantener una referencia a un componente activo/inactivo_
-- **useLayoutEffect** _Imprimir en pantalla las dimensiones de un box despues de renderizado, se utiliza getBoundingClientRect()_
-- **memo y useMemo** _Se utiliza React.memo y el hook useMemo para memorizar el valor procesado de una funcion y evitar que se renderice sin que la dependencia cambie_
+**Hooks usados**
+
+- useState _Para el estado de los componentes_
+- useEffect _Como condicional para ejecutar codigo_
+- **CUSTOM** useFetch _Para realizar peticiones a una API_
+- useRef _Para mantener una referencia al estado de un componente_
+- useLayoutEffect _Para ejecutar codigo despues de la renderizacion_
+- useMemo _Para evitar renderizaciones si la dependencia no muta_
+- useReducer _Para estados mas complejos, similar a useState_
 
 **Profesor** _Fernando Herrera @Fernando_Her85_
 
