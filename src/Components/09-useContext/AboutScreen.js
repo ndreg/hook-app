@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const HomeScreen = () => {
+export const AboutScreen = () => {
   return (
     <div>
-      <h1>Home Screen</h1>
+      <h1>About</h1>
       <hr/>
     </div>
   )
